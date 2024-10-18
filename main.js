@@ -30,19 +30,21 @@ document.getElementById("d8").addEventListener("click", roll_d8)
 document.getElementById("d6").addEventListener("mouseenter", d6_enter)
 document.getElementById("d6").addEventListener("mouseleave", d6_leave)
 document.getElementById("enter").addEventListener("click", greeting)
+document.getElementById("user_input").addEventListener("input", key_log)
 
 document.getElementById("swap_pic").addEventListener("click", swap)
-document.getElementById("swap_pic").addEventListener("mouseleave", leave)
 
-
+let which_pic = 1
 
 function swap() {
-    document.getElementById("swap_pic").src = "./image/jurin.jpg" 
+    if (which_pic ==1) {    
+    document.getElementById("swap_pic").src = "./image/jurin.jpg"
+    which_pic = 2 
+    } else {
+    document.getElementById("swap_pic").src = "./image/chisa.jpg"  
+    which_pic = 1 
+    }
 }
-function leave() {
-    document.getElementById("swap_pic").src = "./image/chisa.jpg"
-}
-
 
 function randInt(min, max) {
 return Math.floor(Math.random() * (max - min + 1)) + min
@@ -58,7 +60,6 @@ function roll_d8() {
     document.getElementById("die_roll").textContent = roll
     }
 
-
 function d6_enter() {
     document.getElementById("die").textContent = "💝"
 }
@@ -67,8 +68,12 @@ function d6_leave() {
     document.getElementById("die").textContent = "🎲"
 }
 
-
 function greeting() {
 let name = document.getElementById("user_input").value
 document.getElementById("greeting").textContent = `Hello ${name}!`
+document.getElementById("user_input").value = ""
+} 
+
+function key_log() {
+    console.log(document.getElementById("user_input").value)
 }
