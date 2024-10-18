@@ -31,7 +31,17 @@ document.getElementById("d6").addEventListener("mouseenter", d6_enter)
 document.getElementById("d6").addEventListener("mouseleave", d6_leave)
 document.getElementById("enter").addEventListener("click", greeting)
 
+document.getElementById("swap_pic").addEventListener("click", swap)
+document.getElementById("swap_pic").addEventListener("mouseleave", leave)
 
+
+
+function swap() {
+    document.getElementById("swap_pic").src = "./image/jurin.jpg" 
+}
+function leave() {
+    document.getElementById("swap_pic").src = "./image/chisa.jpg"
+}
 
 
 function randInt(min, max) {
